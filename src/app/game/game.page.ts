@@ -24,8 +24,8 @@ export class GamePage implements OnInit {
       this.indexGame++;
       this.rule = this.gameSrvc.rules[this.indexGame];
     } else {
+      this.gameSrvc.resetGame();
       this.navCtrl.navigateForward('/home');
     }
   }
-
 }

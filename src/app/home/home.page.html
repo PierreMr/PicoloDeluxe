@@ -8,7 +8,24 @@
 
 <ion-content>
   <div class="ion-padding">
-    <ion-button (click)="nav('game')">
+    <ion-item>
+      <ion-input [(ngModel)]="player" clearInput placeholder="Name"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="addPlayer()">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+
+    <ion-list>
+      <ion-item *ngFor="let player of players; let i = index">
+        <h3>{{ player }}</h3>
+        <ion-button (click)="removePlayer(i)" slot="end" fill="clear">
+          <ion-icon name="remove"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-button [disabled]="players.length == 0" (click)="play()">
       <ion-icon name="play"></ion-icon>
     </ion-button>
   </div>
