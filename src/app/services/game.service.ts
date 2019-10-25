@@ -6,7 +6,6 @@ import { gameRules } from '../interfaces/gameRules.interface';
   providedIn: 'root'
 })
 export class GameService {
-  allRules: any[] = [...gameRules];
   rules: any[] = [];
   players: any[] = [];
 
@@ -19,32 +18,25 @@ export class GameService {
   }
 
   getRandomRulesFromAllRules(nbRules: number) {
+    const rules = [];
+    const gameRulesConst = [...gameRules];
     this.rules = [];
     const randomRuleIndexes: number[] = [];
     for (let i = 0; i < nbRules; i++) {
-      const randomRuleIndex = Math.floor(Math.random() * this.allRules.length);
+      const randomRuleIndex = Math.floor(Math.random() * gameRulesConst.length);
       if (!randomRuleIndexes.includes(randomRuleIndex)) {
         randomRuleIndexes.push(randomRuleIndex);
-        this.rules.push(this.allRules[randomRuleIndex]);
-        console.log(this.allRules[randomRuleIndex]);
+        rules.push(gameRulesConst[randomRuleIndex]);
+        console.log(gameRulesConst[randomRuleIndex]);
       } else {
         i--;
       }
     }
-  }
-
-  updateRules() {
-    this.rules.forEach((rule, index) => {
-      for (let i = 0; i < rule.playersInvolved; i++) {
-        // tslint:disable-next-line:max-line-length
-        this.rules[index].text = this.rules[index].text.replace('$player' + (i + 1), this.players[Math.floor(Math.random() * this.players.length)]);
-      }
-    });
+    this.rules = [...rules];
   }
 
   startGame() {
     this.getRandomRulesFromAllRules(9);
-    this.updateRules();
     this.nav('game');
   }
 

@@ -28,4 +28,13 @@ export class GamePage implements OnInit {
       this.navCtrl.navigateForward('/home');
     }
   }
+
+  updateRule(rule) {
+    let ruleText = rule.text;
+    for (let i = 0; i < rule.playersInvolved; i++) {
+      // tslint:disable-next-line:max-line-length
+      ruleText = rule.text.replace('$player' + (i + 1), this.gameSrvc.players[Math.floor(Math.random() * this.gameSrvc.players.length)]);
+    }
+    return ruleText;
+  }
 }
