@@ -10,11 +10,11 @@
   <div class="ion-padding">
     <ion-item>
       <ion-input [(ngModel)]="player" clearInput placeholder="Name"></ion-input>
-    </ion-item>
 
-    <ion-button (click)="addPlayer()">
-      <ion-icon name="add"></ion-icon>
-    </ion-button>
+      <ion-button (click)="addPlayer()" slot="end">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-item>
 
     <ion-list>
       <ion-item *ngFor="let player of players; let i = index">
@@ -25,8 +25,10 @@
       </ion-item>
     </ion-list>
 
-    <ion-button [disabled]="players.length == 0" (click)="play()">
-      <ion-icon name="play"></ion-icon>
-    </ion-button>
+    <div class="ion-text-center">
+      <ion-button [disabled]="players.length < 2" (click)="play()">
+        <ion-icon name="play"></ion-icon>
+      </ion-button>
+    </div>
   </div>
 </ion-content>

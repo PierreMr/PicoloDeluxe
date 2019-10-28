@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { gameRules } from '../interfaces/gameRules.interface';
+import { gameRules } from '../database/gameRules';
 
 @Injectable({
   providedIn: 'root'

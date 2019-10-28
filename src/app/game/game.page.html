@@ -1,3 +1,9 @@
 <ion-content [color]="rule.color" (click)="next()" class="ion-text-center">
-  <h1>{{ updateRule(rule) }}</h1>
+  <h1>{{ rule.text }}</h1>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" (click)="nav('home')">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
