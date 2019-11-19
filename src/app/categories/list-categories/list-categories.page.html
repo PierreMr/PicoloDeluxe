@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Your categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="categories.length > 0 && categories">
+    <ion-item *ngFor="let category of categories">
+      <ion-icon [name]="category.data().icon" slot="start"></ion-icon>
+      <ion-text>{{ category.data().name }}</ion-text>
+    </ion-item>
+  </ion-list>
+  <ion-item *ngIf="categories.length == 0 && categories">
+    <ion-text>You don't have any categories yet.</ion-text>
+  </ion-item>
+</ion-content>

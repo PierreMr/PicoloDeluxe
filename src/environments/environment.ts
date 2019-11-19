@@ -14,3 +14,10 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyDsLXsR4oJrYnKMUxNwh61vFFmz6FIMCuM',
+  authDomain: 'picolodeluxe.firebaseapp.com',
+  databaseURL: 'https://picolodeluxe.firebaseio.com',
+  projectId: 'picolodeluxe'
+};

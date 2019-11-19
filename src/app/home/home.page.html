@@ -1,33 +1,33 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Picolo Deluxe
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    <ion-item>
-      <ion-input [(ngModel)]="player" clearInput placeholder="Name"></ion-input>
-
-      <ion-button (click)="addPlayer()" slot="end">
-        <ion-icon name="add"></ion-icon>
+    <div class="ion-text-center">
+      <ion-button (click)="nav('start-game')">
+        <ion-icon name="play"></ion-icon>
+        <ion-text class="ion-margin-start">Start Game</ion-text>
       </ion-button>
-    </ion-item>
-
-    <ion-list>
-      <ion-item *ngFor="let player of players; let i = index">
-        <h3>{{ player }}</h3>
-        <ion-button (click)="removePlayer(i)" slot="end" fill="clear">
-          <ion-icon name="remove"></ion-icon>
-        </ion-button>
-      </ion-item>
-    </ion-list>
+    </div>
 
     <div class="ion-text-center">
-      <ion-button [disabled]="players.length < 2" (click)="play()">
-        <ion-icon name="play"></ion-icon>
+      <ion-button (click)="nav('add-category')">
+        <ion-icon name="add"></ion-icon>
+        <ion-icon name="folder"></ion-icon>
+        <ion-text class="ion-margin-start">Add a category</ion-text>
+      </ion-button>
+    </div>
+
+    <div class="ion-text-center">
+      <ion-button (click)="nav('list-categories')">
+        <ion-icon name="list"></ion-icon>
+        <ion-icon name="folder"></ion-icon>
+        <ion-text class="ion-margin-start">List your categories</ion-text>
       </ion-button>
     </div>
   </div>

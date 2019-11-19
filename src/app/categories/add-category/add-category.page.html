@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add a category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <ion-item>
+      <ion-input [(ngModel)]="name" clearInput placeholder="Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="icon" clearInput placeholder="Image"></ion-input>
+    </ion-item>
+
+    <div class="ion-text-center ion-margin-top">
+      <ion-button [disabled]="name == ''" (click)="addCategory()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

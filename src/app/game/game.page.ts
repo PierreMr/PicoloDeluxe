@@ -9,8 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class GamePage implements OnInit {
   indexGame = 0;
-  rules: any[] = [...this.gameSrvc.rules];
-  rule: any;
+  rule: any = this.gameSrvc.rules[this.indexGame];
 
   constructor(
     private navCtrl: NavController,
@@ -18,7 +17,6 @@ export class GamePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rule = this.updateRule(this.rules[this.indexGame]);
   }
 
   nav(url: string) {
@@ -26,21 +24,12 @@ export class GamePage implements OnInit {
   }
 
   next() {
-    if (this.indexGame < this.rules.length - 1) {
+    if (this.indexGame < this.gameSrvc.rules.length - 1) {
       this.indexGame++;
-      this.rule = this.updateRule(this.rules[this.indexGame]);
+      this.rule = this.gameSrvc.rules[this.indexGame];
     } else {
       this.gameSrvc.resetGame();
       this.navCtrl.navigateForward('/home');
     }
-  }
-
-  updateRule(rule) {
-    const updatedRule = rule;
-    for (let i = 0; i < rule.playersInvolved; i++) {
-      // tslint:disable-next-line:max-line-length
-      updatedRule.text = rule.text.replace('$player' + (i + 1), this.gameSrvc.players[Math.floor(Math.random() * this.gameSrvc.players.length)]);
-    }
-    return updatedRule;
   }
 }

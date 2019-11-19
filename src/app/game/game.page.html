@@ -2,8 +2,13 @@
   <h1>{{ rule.text }}</h1>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" (click)="nav('home')">
-      <ion-icon name="home"></ion-icon>
+    <ion-fab-button color="light">
+      <ion-icon name="settings"></ion-icon>
     </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="nav('home')">
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
 </ion-content>
